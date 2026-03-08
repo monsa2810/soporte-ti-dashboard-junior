@@ -1,17 +1,77 @@
-# Soporte TI Dashboard Junior
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard de Soporte Técnico</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+        .stats { display: flex; justify-content: space-between; flex-wrap: wrap; }
+        .stat-box { background: #f5f5f5; padding: 15px; border-radius: 8px; width: 200px; margin: 10px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        tr:hover { background-color: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>Dashboard de Soporte Técnico</h1>
+    
+    <div class="stats">
+        <div class="stat-box">
+            <h3>Tickets Abiertos</h3>
+            <p>12</p>
+        </div>
+        <div class="stat-box">
+            <h3>Tickets Resueltos</h3>
+            <p>8</p>
+        </div>
+        <div class="stat-box">
+            <h3>Tasa de Resolución</h3>
+            <p>67%</p>
+        </div>
+    </div>
 
-Proyecto personal para simular un sistema básico de gestión de tickets de soporte técnico. Diseñado para practicar desarrollo frontend y entender flujos operativos en help desk.
+    <div class="card">
+        <h2>Registro de Tickets</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Descripción</th>
+                    <th>Estado</th>
+                    <th>Prioridad</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#001</td>
+                    <td>Problema de conectividad en PC</td>
+                    <td><span style="color: #e74c3c;">Abierto</span></td>
+                    <td>Alta</td>
+                    <td>05/03/2026</td>
+                </tr>
+                <tr>
+                    <td>#002</td>
+                    <td>Reparación de teclado</td>
+                    <td><span style="color: #2ecc71;">Cerrado</span></td>
+                    <td>Baja</td>
+                    <td>03/03/2026</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-## 🛠️ Funcionalidades
-- Registro y seguimiento de tickets (tipo, prioridad, estado)
-- Estadísticas básicas (tickets abiertos/cerrados)
-- Interfaz responsive para móviles y escritorio
-
-## 💻 Tecnologías
-- HTML5, CSS3, JavaScript (vanilla)
-- Sin backend ni base de datos — 100% frontend
-
-## 📌 Nota
-Como buscador de primer empleo en TI, creé este proyecto para demostrar mi capacidad de resolver problemas técnicos reales con herramientas básicas. Es educativo y funcional — ideal para roles junior en soporte o desarrollo.
-
-🔗 [Ver demo en GitHub Pages](https://monsa2810.github.io/soporte-ti-dashboard-junior)
+    <div class="card">
+        <h2>¿Cómo funciona?</h2>
+        <p>Este dashboard es una simulación para entender el flujo de trabajo en un entorno de soporte técnico. Aunque no tiene backend real, demuestra mi capacidad para:</p>
+        <ul>
+            <li>Crear interfaces útiles para usuarios no técnicos</li>
+            <li>Organizar información de manera clara y accesible</li>
+            <li>Resolver problemas con herramientas básicas (HTML/CSS/JS)</li>
+        </ul>
+    </div>
+</body>
+</html>
