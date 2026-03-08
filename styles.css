@@ -1,4 +1,5 @@
-/* styles.css - Estilos profesionales para el dashboard de soporte técnico */
+/* styles.css - Dashboard de Soporte Técnico Junior */
+/* Versión profesional final | Luis Antonio Monsalve Hernández | 2026 */
 
 /* Variables de diseño */
 :root {
@@ -103,6 +104,15 @@ body {
     border-radius: 10px;
     padding: 1.5rem;
     box-shadow: var(--card-shadow);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filters-card label {
+    font-weight: 500;
+    color: var(--secondary-color);
 }
 
 .filter-select {
@@ -110,17 +120,17 @@ body {
     border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 1rem;
-    width: 250px;
-    margin-right: 1rem;
+    min-width: 200px;
 }
 
 .reset-btn {
     background: var(--light-gray);
     border: 1px solid var(--border-color);
- border-radius: 6px;
+    border-radius: 6px;
     padding: 0.8rem 1.2rem;
     cursor: pointer;
     transition: all 0.3s;
+    font-size: 1rem;
 }
 
 .reset-btn:hover {
@@ -205,6 +215,11 @@ tr:hover {
     box-shadow: var(--card-shadow);
 }
 
+.ticket-form-card h2 {
+    margin-bottom: 1.2rem;
+    color: var(--secondary-color);
+}
+
 .form-group {
     margin-bottom: 1.2rem;
 }
@@ -213,6 +228,7 @@ tr:hover {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 500;
+    color: var(--secondary-color);
 }
 
 .form-control {
@@ -221,16 +237,23 @@ tr:hover {
     border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 1rem;
+    font-family: inherit;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
 .btn-primary {
     background: var(--primary-color);
     color: white;
     border: none;
-    border-radius: 6;
+    border-radius: 6px;
     padding: 0.8rem 1.5rem;
     cursor: pointer;
-    font-size:1rem;
+    font-size: 1rem;
     width: 100%;
     font-weight: 500;
     transition: background 0.3s;
@@ -287,13 +310,25 @@ tr:hover {
         grid-template-columns: 1fr;
     }
     
+    .filters-card {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
     .filter-select, .reset-btn {
         width: 100%;
-        margin: 0.5rem 0;
     }
     
     .header h1 {
         font-size: 1.8rem;
+    }
+    
+    table {
+        font-size: 0.9rem;
+    }
+    
+    th, td {
+        padding: 0.6rem;
     }
 }
 
