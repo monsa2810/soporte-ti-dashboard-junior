@@ -12,13 +12,13 @@ Como buscador de primer empleo en TI, quiero mostrar mi capacidad para:
 - Aplicar conocimientos teóricos en proyectos prácticos
 - Crear soluciones simples pero efectivas
 - Documentar mi trabajo de manera clara
+- Aprender y mejorar continuamente
 
 ## Tecnologías utilizadas
-- HTML5: Estructura del dashboard
-- CSS3: Estilos y responsividad
-- JavaScript (vanilla): Funcionalidad de filtrado y registro de tickets
+- **HTML5**: Estructura del dashboard
+- **CSS3**: Estilos y responsividad
+- **JavaScript (vanilla)**: Funcionalidad de filtrado y registro
+- **GitHub Pages**: Hosting para demostración
+- **Git**: Control de versiones
 
-## Próximos pasos
-- [ ] Implementar sistema de autenticación básica
-- [ ] Agregar notificaciones para cambios de estado de tickets
-- [ ] Crear versión móvil optimizada
+## Estructura del proyecto
