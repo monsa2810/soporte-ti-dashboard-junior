@@ -1,0 +1,320 @@
+/* styles.css - Estilos profesionales para el dashboard de soporte técnico */
+
+/* Variables de diseño */
+:root {
+    --primary-color: #3498db;
+    --primary-dark: #2980b9;
+    --secondary-color: #2c3e50;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --light-gray: #f8f9fa;
+    --border-color: #e0e0e0;
+    --text-color: #333;
+    --card-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f5f7fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header styles */
+.header {
+    background: linear-gradient(135deg, var(--secondary-color), #1a2530);
+    color: white;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+.header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.header p {
+    text-align: center;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* Stats section */
+.stats-section {
+    margin-bottom: 2rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.2rem;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    line-height: 1;
+}
+
+/* Filters section */
+.filters-section {
+    margin-bottom: 2rem;
+}
+
+.filters-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.filter-select {
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 250px;
+    margin-right: 1rem;
+}
+
+.reset-btn {
+    background: var(--light-gray);
+    border: 1px solid var(--border-color);
+ border-radius: 6px;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.reset-btn:hover {
+    background: #e9ecef;
+    border-color: #d6d6d6;
+}
+
+/* Tickets section */
+.tickets-section {
+    margin-bottom: 2rem;
+}
+
+.tickets-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.tickets-card h2 {
+    margin-bottom: 1.2rem;
+    color: var(--secondary-color);
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--light-gray);
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+tr:hover {
+    background-color: #f8f9fa;
+}
+
+.estado-abierto {
+    color: var(--danger-color);
+    font-weight: bold;
+}
+
+.estado-cerrado {
+    color: var(--success-color);
+    font-weight: bold;
+}
+
+.prioridad-alta {
+    color: var(--danger-color);
+}
+
+.prioridad-media {
+    color: var(--warning-color);
+}
+
+.prioridad-baja {
+    color: var(--success-color);
+}
+
+/* Ticket form section */
+.ticket-form-section {
+    margin-bottom: 2rem;
+}
+
+.ticket-form-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6;
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    font-size:1rem;
+    width: 100%;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+/* Project info section */
+.project-info {
+    margin-bottom: 2rem;
+}
+
+.info-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: var(--card-shadow);
+}
+
+.info-card h2 {
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.info-card ul {
+    padding-left: 1.5rem;
+    margin: 1rem 0;
+}
+
+.info-card li {
+    margin-bottom: 0.8rem;
+}
+
+/* Footer styles */
+.footer {
+    background: var(--secondary-color);
+    color: white;
+    padding: 1.5rem 0;
+    margin-top: 2rem;
+}
+
+.footer p {
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin: 0.5rem 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-select, .reset-btn {
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+}
+
+/* A11y improvements */
+[aria-hidden="true"] {
+    display: none;
+}
+
+/* Print styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .header, .filters-section, .ticket-form-section {
+        display: none;
+    }
+    
+    .stats-grid, .tickets-card {
+        box-shadow: none;
+        border: 1px solid #000;
+    }
+}
