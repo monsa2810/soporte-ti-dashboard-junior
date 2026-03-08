@@ -6,13 +6,136 @@
     <title>Dashboard de Soporte Técnico</title>
     <style>
         * { box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px; }
-        .card { border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin-bottom: 20px; }
-        .stats { display: flex; justify-content: space-between; flex-wrap: wrap; }
-        .stat-box { background: #f5f5f5; padding: 15px; border-radius: 8px; width: 200px; margin: 10px; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
-        tr:hover { background-color: #f5f5f5; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background-color: #f5f7fa;
+            color: #333;
+        }
+        h1 { 
+            color: #2c3e50; 
+            text-align: center; 
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding 10px;
+        }
+        .stats { 
+            display: flex; 
+            justify-content: space-around; 
+            flex-wrap: wrap; 
+            margin-bottom: 25px;
+            gap: 15px;
+        }
+        .stat-box { 
+            background: #fff; 
+            border-radius: 10px; 
+            padding: 15px; 
+            width: 200px; 
+            margin: 10px; 
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+            border: 1px solid #e0e0e0;
+        }
+        .stat-box:hover { 
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .stat-box h3 {
+            color: #3498db;
+            margin-top: 0;
+            font-size: 1.1em;
+        }
+        .stat-box p {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+        .card { 
+            border: 1px solid #ddd; 
+            border-radius: 8px; 
+            padding: 20px; 
+            margin-bottom: 20px; 
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .filtro {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+        }
+        th, td { 
+            padding: 12px; 
+            text-align: left; 
+            border-bottom: 1px solid #ddd; 
+        }
+        tr:hover { 
+            background-color: #f5f5f5; 
+        }
+        .alta { color: #e74c3c; font-weight: bold; }
+        .media { color: #f39c12; }
+        .baja { color: #2ecc71; }
+        .cerrado { color: #27ae60; font-weight: bold; }
+        .abierto { color: #e74c3c; font-weight: bold; }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .footer-note {
+            margin-top: 30px;
+            padding: 15px;
+            background: #e8f4fc;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .footer-note h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .footer-note ul {
+            padding-left: 20px;
+        }
+        .footer-note li {
+            margin-bottom: 8px;
+        }
+        @media (max-width: 768px) {
+            .stats {
+                flex-direction: column;
+                align-items: center;
+            }
+            .stat-box {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -31,11 +154,26 @@
             <h3>Tasa de Resolución</h3>
             <p>67%</p>
         </div>
+        <div class="stat-box">
+            <h3>Última Actualización</h3>
+            <p>Hoy</p>
+        </div>
+    </div>
+
+    <div class="filtro">
+        <label>Filtrar por prioridad: 
+            <select id="filtro-prioridad" onchange="filtrarTickets()">
+                <option value="todos">Todos</option>
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+            </select>
+        </label>
     </div>
 
     <div class="card">
         <h2>Registro de Tickets</h2>
-        <table>
+        <table id="tickets-table">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -49,29 +187,86 @@
                 <tr>
                     <td>#001</td>
                     <td>Problema de conectividad en PC</td>
-                    <td><span style="color: #e74c3c;">Abierto</span></td>
-                    <td>Alta</td>
+                    <td class="abierto">Abierto</td>
+                    <td class="alta">Alta</td>
                     <td>05/03/2026</td>
                 </tr>
                 <tr>
                     <td>#002</td>
                     <td>Reparación de teclado</td>
-                    <td><span style="color: #2ecc71;">Cerrado</span></td>
-                    <td>Baja</td>
+                    <td class="cerrado">Cerrado</td>
+                    <td class="baja">Baja</td>
                     <td>03/03/2026</td>
+                </tr>
+                <tr>
+                    <td>#003</td>
+                    <td>Problema de impresora en red</td>
+                    <td class="abierto">Abierto</td>
+                    <td class="media">Media</td>
+                    <td>04/03/2026</td>
+                </tr>
+                <tr>
+                    <td>#004</td>
+                    <td>Actualización de sistema operativo</td>
+                    <td class="cerrado">Cerrado</td>
+                    <td class="baja">Baja</td>
+                    <td>02/03/2026</td>
                 </tr>
             </tbody>
         </table>
     </div>
 
     <div class="card">
-        <h2>¿Cómo funciona?</h2>
+        <h2>Registrar Nuevo Ticket</h2>
+        <form id="ticket-form">
+            <div class="form-group">
+                <label>Descripción del problema:</label>
+                <input type="text" class="form-control" placeholder="Ej: Problema de conectividad en PC" required>
+            </div>
+            <div class="form-group">
+                <label>Prioridad:</label>
+                <select class="form-control" required>
+                    <option value="alta">Alta</option>
+                    <option value="media">Media</option>
+                    <option value="baja">Baja</option>
+                </select>
+            </div>
+            <button type="submit" class="btn">Registrar Ticket</button>
+        </form>
+    </div>
+
+    <div class="footer-note">
+        <h3>¿Cómo funciona este proyecto?</h3>
         <p>Este dashboard es una simulación para entender el flujo de trabajo en un entorno de soporte técnico. Aunque no tiene backend real, demuestra mi capacidad para:</p>
         <ul>
             <li>Crear interfaces útiles para usuarios no técnicos</li>
             <li>Organizar información de manera clara y accesible</li>
             <li>Resolver problemas con herramientas básicas (HTML/CSS/JS)</li>
+            <li>Implementar sistemas de filtrado para mejorar la experiencia del usuario</li>
         </ul>
+        <p>Como buscador de primer empleo en TI, creé este proyecto para demostrar mi capacidad de aprender y aplicar conocimientos técnicos en proyectos reales.</p>
     </div>
+
+    <script>
+        function filtrarTickets() {
+            const filtro = document.getElementById('filtro-prioridad').value;
+            const filas = document.querySelectorAll('#tickets-table tbody tr');
+            
+            filas.forEach(fila => {
+                const prioridad = fila.querySelector('.prioridad').textContent.toLowerCase();
+                if (filtro === 'todos' || prioridad === filtro) {
+                    fila.style.display = '';
+                } else {
+                    fila.style.display = 'none';
+                }
+            });
+        }
+        
+        document.getElementById('ticket-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Ticket registrado con éxito! En un proyecto real, esto se enviaría a un sistema backend.');
+            this.reset();
+        });
+    </script>
 </body>
 </html>
